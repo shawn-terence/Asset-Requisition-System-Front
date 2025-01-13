@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const API_BASE_URL = 'http://127.0.0.1:8000/user/';
+export const API_BASE_URL = 'http://127.0.0.1:8000/';
 
-const axiosInstance = axios.create({
+export const axiosInstance = axios.create({
     baseURL: API_BASE_URL,
 });
 
@@ -25,7 +25,7 @@ export const userService = {
     // User Registration
     userRegister: async (user) => {
         try {
-            const response = await axiosInstance.post('register', user);
+            const response = await axiosInstance.post('user/register', user);
             return response.data;
         } catch (error) {
             if (axios.isAxiosError(error)) {
@@ -39,7 +39,7 @@ export const userService = {
     // User Login
     userLogin: async (credentials) => {
         try {
-            const response = await axiosInstance.post('login', credentials);
+            const response = await axiosInstance.post('user/login', credentials);
             const token = response.data.token;
 
             if (token) {
@@ -60,7 +60,7 @@ export const userService = {
     // Fetch All Users
     allUsers: async () => {
         try {
-            const response = await axiosInstance.get('all/');
+            const response = await axiosInstance.get('user/all/');
             return response.data;
         } catch (error) {
             if (axios.isAxiosError(error)) {
@@ -72,7 +72,7 @@ export const userService = {
     },
     updatePassword:async(data)=>{
         try {
-            const response = await axiosInstance.put('updatepassword',data);
+            const response = await axiosInstance.put('user/updatepassword',data);
             return response.data;
         }
         catch (error) {
@@ -85,7 +85,7 @@ export const userService = {
     },
     userDetails:async()=>{
         try {
-            const response = await axiosInstance.get('userdetails');
+            const response = await axiosInstance.get('user/userdetails');
             return response.data;
         }
         catch (error) {
@@ -98,7 +98,7 @@ export const userService = {
     },
     changeRole:async(data)=>{
         try {
-            const response = await axiosInstance.put('changerole',data);
+            const response = await axiosInstance.post('user/changerole',data);
             return response.data;
         }
         catch (error) {
@@ -111,7 +111,7 @@ export const userService = {
     },
     userDelete:async(id)=>{
         try {
-            const response = await axiosInstance.delete(`${id}/delete/`);
+            const response = await axiosInstance.delete(`user/${id}/delete/`);
             return response.data;
         }
         catch (error) {
@@ -124,7 +124,7 @@ export const userService = {
     },
     userAssets:async()=>{
         try {
-            const response = await axiosInstance.get('assets');
+            const response = await axiosInstance.get('user/assets');
             return response.data;
         }
         catch (error) {
