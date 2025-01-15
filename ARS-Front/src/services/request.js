@@ -30,9 +30,9 @@ export const requestsService={
                 throw new Error('An unexpected error occurred while fetching requests')
             }
         },
-        requestAction:async(id)=>{
+        requestAction:async(id,data)=>{
             try {
-                const response= await axiosInstance.post(`requests/${id}/`);
+                const response= await axiosInstance.patch(`requests/${id}/`,data);
                 return response.data;
             }
             catch (error) {
