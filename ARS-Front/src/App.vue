@@ -1,7 +1,9 @@
-<template>
-  <DefaultLayout>
-    <RouterView />
-  </DefaultLayout>
+<template >
+  <div class="page">
+    <DefaultLayout>
+      <RouterView />
+    </DefaultLayout>
+  </div>
 </template>
 
 <script>
@@ -13,3 +15,11 @@ export default {
   },
 };
 </script>
+<style scoped>
+
+/* .page{
+  height:100vh;
+  background-color:aqua;
+} */
+</style>
+
