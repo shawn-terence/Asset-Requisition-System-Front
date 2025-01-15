@@ -1,14 +1,15 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
-  <header>
-    
-  </header>
-
-  <RouterView />
+  <DefaultLayout>
+    <RouterView />
+  </DefaultLayout>
 </template>
 
-<style scoped>
-</style>
+<script>
+import DefaultLayout from "@/layout/DefaultLayout.vue";
+import { RouterLink, RouterView } from 'vue-router'
+export default {
+  components: {
+    DefaultLayout,
+  },
+};
+</script>
